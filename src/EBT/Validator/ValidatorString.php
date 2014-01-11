@@ -11,7 +11,11 @@
 
 namespace EBT\Validator;
 
-use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
+use Symfony\Component\Validator\Constraints\Length as LengthConstraint;
+use Symfony\Component\Validator\Constraints\Url as UrlConstraint;
+use Symfony\Component\Validator\Constraints\Regex as RegexConstraint;
+use Symfony\Component\Validator\Constraints\Ip as IpConstraint;
 
 /**
  * ValidatorString
@@ -26,7 +30,7 @@ abstract class ValidatorString extends BaseValidator
      */
     public static function isEmail($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new Constraints\Email($options));
+        $violations = static::getValidator()->validateValue($value, new EmailConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -49,7 +53,7 @@ abstract class ValidatorString extends BaseValidator
             $options['max'] = $max;
         }
 
-        $violations = static::getValidator()->validateValue($value, new Constraints\Length($options));
+        $violations = static::getValidator()->validateValue($value, new LengthConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -63,7 +67,7 @@ abstract class ValidatorString extends BaseValidator
      */
     public static function isUrl($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new Constraints\Url($options));
+        $violations = static::getValidator()->validateValue($value, new UrlConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -107,7 +111,7 @@ abstract class ValidatorString extends BaseValidator
      */
     protected static function regex($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new Constraints\Regex($options));
+        $violations = static::getValidator()->validateValue($value, new RegexConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -124,7 +128,7 @@ abstract class ValidatorString extends BaseValidator
     {
         $options['version'] = $version;
 
-        $violations = static::getValidator()->validateValue($value, new Constraints\Ip($options));
+        $violations = static::getValidator()->validateValue($value, new IpConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
