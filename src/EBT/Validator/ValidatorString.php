@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints;
 /**
  * ValidatorString
  */
-class ValidatorString extends BaseValidator
+abstract class ValidatorString extends BaseValidator
 {
     /**
      * @param string $value
@@ -40,7 +40,7 @@ class ValidatorString extends BaseValidator
      *
      * @return bool
      */
-    public static function isLength($value, $min = null, $max = null, array $options = array())
+    public static function inLength($value, $min = null, $max = null, array $options = array())
     {
         if ($min !== null) {
             $options['min'] = $min;

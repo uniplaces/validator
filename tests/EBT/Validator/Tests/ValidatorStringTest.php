@@ -60,7 +60,7 @@ class ValidatorStringTest extends TestCase
      *
      * @dataProvider providerLengths
      */
-    public function testIsLength(
+    public function testInLength(
         $value,
         $min = null,
         $max = null,
@@ -72,7 +72,7 @@ class ValidatorStringTest extends TestCase
             $this->setExpectedException($exception);
         }
 
-        $this->assertEquals($expected, ValidatorString::isLength($value, $min, $max));
+        $this->assertEquals($expected, ValidatorString::inLength($value, $min, $max));
         $this->assertCount($violationsCount, ValidatorString::getViolations());
     }
 
