@@ -92,7 +92,7 @@ class ValidatorStringTest extends TestCase
     public function testIsUrl()
     {
         $this->assertFalse(ValidatorString::isUrl('test', array('message' => 'Invalid URL.')));
-        $this->assertEquals('test: Invalid URL.', ValidatorString::getViolationsAsShortString());
+        $this->assertContains('test: Invalid URL.', ValidatorString::getViolationsAsShortString());
 
         $this->assertTrue(ValidatorString::isUrl('http://www.google.pt'));
     }
