@@ -60,4 +60,12 @@ abstract class BaseValidator
     {
         return static::$violations;
     }
+
+    /**
+     * @return string
+     */
+    public static function getViolationsAsShortString()
+    {
+        return trim(preg_replace('/\s+/', ' ', (string) static::getViolations()));
+    }
 }

@@ -88,4 +88,80 @@ class ValidatorStringTest extends TestCase
             array('test', null, null, null, 0, 'Symfony\Component\Validator\Exception\MissingOptionsException'),
         );
     }
+
+    public function testIsUrl()
+    {
+        $this->assertFalse(ValidatorString::isUrl('test', array('message' => 'Invalid URL.')));
+        $this->assertEquals('test: Invalid URL.', ValidatorString::getViolationsAsShortString());
+
+        $this->assertTrue(ValidatorString::isUrl('http://www.google.pt'));
+    }
+
+    /**
+     * @param bool   $match
+     * @param mixed  $value
+     * @param mixed  $pattern
+     * @param bool   $expected
+     * @param string $exception
+     *
+     * @dataProvider providerRegexs
+     */
+    public function testRegex($match, $value, $pattern, $expected, $exception = null)
+    {
+        if ($exception !== null) {
+            $this->setExpectedException($exception);
+        }
+
+        $method = $match ? 'matchRegex' : 'notMatchRegex';
+
+        $this->assertEquals($expected, ValidatorString::$method($value, $pattern));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerRegexs()
+    {
+        return array(
+            // match (true|false), value, pattern, expected, exception
+            array(true, 'john doe', '/doe/', true),
+            array(true, 'john doe', '/test/', false),
+            array(true, array(), '/test/', false, 'Symfony\Component\Validator\Exception\UnexpectedTypeException'),
+            array(false, 'john doe', '/doe/', false),
+            array(false, 'john doe', '/test/', true),
+        );
+    }
+
+    /**
+     * @param string $ip
+     * @param string $version
+     * @param bool   $expected
+     * @param string $exception
+     *
+     * @dataProvider providerIps
+     */
+    public function testIsIp($ip, $version, $expected, $exception = null)
+    {
+        if ($exception !== null) {
+            $this->setExpectedException($exception);
+        }
+
+        $this->assertEquals($expected, ValidatorString::isIp($ip, $version));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerIps()
+    {
+        return array(
+            // ip, version, expected, exception
+            array('94.132.104.160', '4', true),
+            array('94.132.104.160', '6', false),
+            array('127.0.0.1', '4_no_res', false),
+            array('192.168.1.10', '4', true),
+            array('192.168.1.10', '4_no_priv', false),
+            array(array(), '4', null, 'Symfony\Component\Validator\Exception\UnexpectedTypeException')
+        );
+    }
 }
