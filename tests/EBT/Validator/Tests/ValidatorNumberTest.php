@@ -38,7 +38,10 @@ class ValidatorNumberTest extends TestCase
     {
         return array(
             // value, min, max, expected,
-            array(10, 5, 30, true)
+            array(10, 5, 30, true),
+            array(10, 20, 30, false),
+            array(40, 20, 30, false),
+            array(7.5, 2.5, 8, true)
         );
     }
 }
