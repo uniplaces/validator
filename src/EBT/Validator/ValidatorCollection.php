@@ -61,7 +61,7 @@ abstract class ValidatorCollection extends BaseValidator
      *
      * @return bool
      */
-    public static function inCount($value, $min = null, $max = null, array $options = array())
+    public static function inCountRange($value, $min = null, $max = null, array $options = array())
     {
         if ($min !== null) {
             $options['min'] = $min;

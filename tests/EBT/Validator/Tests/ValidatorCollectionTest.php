@@ -72,9 +72,9 @@ class ValidatorCollectionTest extends TestCase
      *
      * @dataProvider providerCounts
      */
-    public function testInCount($value, $min, $max, $expected)
+    public function testInCountRange($value, $min, $max, $expected)
     {
-        $this->assertEquals($expected, ValidatorCollection::inCount($value, $min, $max));
+        $this->assertEquals($expected, ValidatorCollection::inCountRange($value, $min, $max));
     }
 
     /**
