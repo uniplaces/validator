@@ -57,4 +57,51 @@ class ValidatorBasicTest extends TestCase
         $this->assertFalse(ValidatorBasic::isNull(1));
         $this->assertFalse(ValidatorBasic::isNull('test'));
     }
+
+    public function testIsTrue()
+    {
+        $this->assertTrue(ValidatorBasic::isTrue(true));
+        $this->assertTrue(ValidatorBasic::isTrue(1));
+        $this->assertTrue(ValidatorBasic::isTrue('1'));
+
+        $this->assertFalse(ValidatorBasic::isTrue(false));
+        $this->assertFalse(ValidatorBasic::isTrue(10));
+        $this->assertFalse(ValidatorBasic::isTrue('test'));
+    }
+
+    public function testIsFalse()
+    {
+        $this->assertTrue(ValidatorBasic::isFalse(false));
+        $this->assertTrue(ValidatorBasic::isFalse(0));
+        $this->assertTrue(ValidatorBasic::isFalse('0'));
+
+        $this->assertFalse(ValidatorBasic::isFalse(true));
+        $this->assertFalse(ValidatorBasic::isTrue(10));
+        $this->assertFalse(ValidatorBasic::isTrue('test'));
+    }
+
+    /**
+     * @param mixed  $value
+     * @param string $type
+     * @param bool   $expected
+     *
+     * @dataProvider providerTypes
+     */
+    public function testIsType($value, $type, $expected)
+    {
+        $this->assertEquals($expected, ValidatorBasic::isType($value, $type));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerTypes()
+    {
+        return array(
+            // value, type, expected
+            array(10, 'int', true),
+            array('test', 'int', false),
+            array('test', 'string', true)
+        );
+    }
 }
