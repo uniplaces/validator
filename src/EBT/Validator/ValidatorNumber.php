@@ -20,8 +20,8 @@ abstract class ValidatorNumber extends BaseValidator
 {
     /**
      * @param int|float|string $value
-     * @param float            $min
-     * @param float            $max
+     * @param int|float        $min
+     * @param int|float        $max
      * @param array            $options
      *
      * @return bool
