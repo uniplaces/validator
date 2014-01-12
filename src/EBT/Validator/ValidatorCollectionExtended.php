@@ -14,7 +14,7 @@ namespace EBT\Validator;
 /**
  * ValidatorCollectionExtended, add convenient methods/alias on top of Symfony validation.
  */
-class ValidatorCollectionExtended extends ValidatorCollection
+abstract class ValidatorCollectionExtended extends ValidatorCollection
 {
     /**
      * @param array|object $value

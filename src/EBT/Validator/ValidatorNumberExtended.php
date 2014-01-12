@@ -12,9 +12,9 @@
 namespace EBT\Validator;
 
 /**
- * ValidatorNumberExtended
+ * ValidatorNumberExtended, add convenient methods/alias on top of Symfony validation.
  */
-class ValidatorNumberExtended extends ValidatorNumber
+abstract class ValidatorNumberExtended extends ValidatorNumber
 {
     /**
      * @param int|float|string $value
