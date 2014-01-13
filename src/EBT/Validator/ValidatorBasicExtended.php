@@ -48,4 +48,17 @@ abstract class ValidatorBasicExtended extends ValidatorBasic
     {
         return static::isType($value, 'bool', $options);
     }
+
+    /**
+     * Uses the Type constraint of Symfony, the name of the method is not isTypeNumeric, because numeric is not a type.
+     *
+     * @param mixed $value
+     * @param array $options
+     *
+     * @return bool
+     */
+    public static function isNumeric($value, array $options = array())
+    {
+        return static::isType($value, 'numeric', $options);
+    }
 }

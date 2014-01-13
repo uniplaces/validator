@@ -41,4 +41,11 @@ class ValidatorBasicExtendedTest extends TestCase
         $this->assertFalse(ValidatorBasicExtended::isTypeBool('test'));
         $this->assertTrue(ValidatorBasicExtended::isTypeBool(false));
     }
+
+    public function testIsNumeric()
+    {
+        $this->assertTrue(ValidatorBasicExtended::isNumeric(10.5));
+        $this->assertTrue(ValidatorBasicExtended::isNumeric('10.5'));
+        $this->assertFalse(ValidatorBasicExtended::isNumeric('test'));
+    }
 }
