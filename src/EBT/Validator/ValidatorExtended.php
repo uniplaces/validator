@@ -13,6 +13,7 @@ namespace EBT\Validator;
 
 use Symfony\Component\Validator\Constraints\NotBlank as NotBlankConstraint;
 use Symfony\Component\Validator\Constraints\Type as TypeConstraint;
+use Symfony\Component\Validator\Constraints\Range as RangeConstraint;
 
 /**
  * ValidatorExtended
@@ -31,6 +32,25 @@ abstract class ValidatorExtended extends BaseValidator
             array(
                 new TypeConstraint(array('type' => 'string')),
                 new NotBlankConstraint()
+            )
+        );
+        static::setViolations($violations);
+
+        return static::violationsToBool($violations);
+    }
+
+    /**
+     * @param mixed $value
+     *
+     * @return bool
+     */
+    public static function isPositiveInteger($value)
+    {
+        $violations = static::getValidator()->validateValue(
+            $value,
+            array(
+                new TypeConstraint(array('type' => 'integer')),
+                new RangeConstraint(array('min' => 1))
             )
         );
         static::setViolations($violations);

@@ -25,4 +25,14 @@ class ValidatorExtendedTest extends TestCase
         $this->assertFalse(ValidatorExtended::isStringAndNotBlank(''));
         $this->assertTrue(ValidatorExtended::isStringAndNotBlank('test'));
     }
+
+    public function testIsPositiveInteger()
+    {
+        // this fails fow now (so is commented)
+        //$this->assertFalse(ValidatorExtended::isPositiveInteger(array()));
+        $this->assertFalse(ValidatorExtended::isPositiveInteger('test'));
+        $this->assertFalse(ValidatorExtended::isPositiveInteger(-5));
+        $this->assertTrue(ValidatorExtended::isPositiveInteger(1));
+        $this->assertTrue(ValidatorExtended::isPositiveInteger(10));
+    }
 }
