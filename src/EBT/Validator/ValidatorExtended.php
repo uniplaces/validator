@@ -57,4 +57,23 @@ abstract class ValidatorExtended extends BaseValidator
 
         return static::violationsToBool($violations);
     }
+
+    /**
+     * @param mixed $value
+     *
+     * @return bool
+     */
+    public static function isZeroOrPositiveInteger($value)
+    {
+        $violations = static::getValidator()->validateValue(
+            $value,
+            array(
+                new TypeConstraint(array('type' => 'integer')),
+                new RangeConstraint(array('min' => 0))
+            )
+        );
+        static::setViolations($violations);
+
+        return static::violationsToBool($violations);
+    }
 }
