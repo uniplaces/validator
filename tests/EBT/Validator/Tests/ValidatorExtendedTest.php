@@ -32,7 +32,19 @@ class ValidatorExtendedTest extends TestCase
         //$this->assertFalse(ValidatorExtended::isPositiveInteger(array()));
         $this->assertFalse(ValidatorExtended::isPositiveInteger('test'));
         $this->assertFalse(ValidatorExtended::isPositiveInteger(-5));
+        $this->assertFalse(ValidatorExtended::isPositiveInteger(0));
         $this->assertTrue(ValidatorExtended::isPositiveInteger(1));
         $this->assertTrue(ValidatorExtended::isPositiveInteger(10));
+    }
+
+    public function testIsZeroOrPositiveInteger()
+    {
+        // this fails fow now (so is commented)
+        //$this->assertFalse(ValidatorExtended::isZeroOrPositiveInteger(array()));
+        $this->assertFalse(ValidatorExtended::isZeroOrPositiveInteger('test'));
+        $this->assertFalse(ValidatorExtended::isZeroOrPositiveInteger(-5));
+        $this->assertTrue(ValidatorExtended::isZeroOrPositiveInteger(0));
+        $this->assertTrue(ValidatorExtended::isZeroOrPositiveInteger(1));
+        $this->assertTrue(ValidatorExtended::isZeroOrPositiveInteger(10));
     }
 }
