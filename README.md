@@ -7,7 +7,7 @@ A validator on top of Symfony validator
 
 ## Requirements ##
 
-* PHP >= 5.3
+* PHP >= 5.3.3
 
 ## Installation ##
 
