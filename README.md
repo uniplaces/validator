@@ -3,7 +3,7 @@
 A validator on top of Symfony validator
 
 [![Latest Stable Version](https://poser.pugx.org/ebidtech/validator/v/stable.png)](https://packagist.org/packages/ebidtech/validator)
- [![Build Status](https://travis-ci.org/ebidtech/validator.png?branch=master)](https://travis-ci.org/ebidtech/validator) [![Dependency Status](https://www.versioneye.com/user/projects/52da5c4cec137510bf000380/badge.png)](https://www.versioneye.com/user/projects/52da5c4cec137510bf000380)
+ [![Build Status](https://travis-ci.org/ebidtech/validator.png?branch=master)](https://travis-ci.org/ebidtech/validator) [![Coverage Status](https://coveralls.io/repos/ebidtech/validator/badge.png?branch=master)](https://coveralls.io/r/ebidtech/validator?branch=master) [![Dependency Status](https://www.versioneye.com/user/projects/52da5c4cec137510bf000380/badge.png)](https://www.versioneye.com/user/projects/52da5c4cec137510bf000380)
 
 ## Requirements ##
 
