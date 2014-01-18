@@ -11,6 +11,9 @@ Using Symfony validator with annotations or configuration (yml or xml) is just f
 argument methods and throw exception is too verbose.
 
 Eg:
+
+### Symfony way ###
+
 ```php
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints\Type;
@@ -30,7 +33,7 @@ class Test {
 }
 ```
 
-Shorter:
+### EBTValidator way ###
 
 ```php
 use EBT\Validator\ValidatorBasicExtended;
