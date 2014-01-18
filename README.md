@@ -96,7 +96,7 @@ The validators are divided according to the Symfony Validator:
 For each one exists a Extended version (Eg: ValidatorBasicExtended), that adds convenience alias methods. It exists also
 a ValidatorExtended that mix validations.
 
-[Example of code](README.md#why-to-use)
+[Example of code](README.md#ebtvalidator-way)
 
 ## Contributing ##
 
