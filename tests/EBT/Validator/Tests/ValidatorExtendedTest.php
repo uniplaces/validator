@@ -28,7 +28,7 @@ class ValidatorExtendedTest extends TestCase
 
     public function testIsPositiveInteger()
     {
-        // this fails fow now (so is commented)
+        // this fails for now (so is commented)
         //$this->assertFalse(ValidatorExtended::isPositiveInteger(array()));
         $this->assertFalse(ValidatorExtended::isPositiveInteger('test'));
         $this->assertFalse(ValidatorExtended::isPositiveInteger(-5));

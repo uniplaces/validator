@@ -154,14 +154,23 @@ class ValidatorStringTest extends TestCase
      */
     public function providerIps()
     {
-        return array(
+        $ips = array(
             // ip, version, expected, exception
             array('94.132.104.160', '4', true),
             array('94.132.104.160', '6', false),
-            array('127.0.0.1', '4_no_res', false),
             array('192.168.1.10', '4', true),
             array('192.168.1.10', '4_no_priv', false),
             array(array(), '4', null, 'Symfony\Component\Validator\Exception\UnexpectedTypeException')
         );
+
+        // @link https://bugs.php.net/bug.php?id=53150
+        if (version_compare(phpversion(), '5.3.3', '>')) {
+            $ips = array_merge(
+                $ips,
+                array(array('127.0.0.1', '4_no_res', false))
+            );
+        }
+
+        return $ips;
     }
 }
