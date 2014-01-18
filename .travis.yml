@@ -13,7 +13,7 @@ env:
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar require symfony/validator:${SYMFONY_VALIDATOR_VERSION} --no-update
-  - php composer.phar install --dev
+  - php composer.phar install --prefer-source --dev
 
 script:
   - vendor/bin/phpunit --coverage-text
