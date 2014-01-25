@@ -42,6 +42,17 @@ class ValidatorBasicExtendedTest extends TestCase
         $this->assertTrue(ValidatorBasicExtended::isTypeBool(false));
     }
 
+    public function testIsTypeArray()
+    {
+        $this->assertFalse(ValidatorBasicExtended::isTypeArray(10));
+        $this->assertFalse(ValidatorBasicExtended::isTypeArray(10.5));
+        $this->assertFalse(ValidatorBasicExtended::isTypeArray('test'));
+        $this->assertFalse(ValidatorBasicExtended::isTypeArray(false));
+        $this->assertTrue(ValidatorBasicExtended::isTypeArray(array()));
+        $this->assertTrue(ValidatorBasicExtended::isTypeArray(array(1)));
+        $this->assertTrue(ValidatorBasicExtended::isTypeArray(array('test', 'and test')));
+    }
+
     public function testIsNumeric()
     {
         $this->assertTrue(ValidatorBasicExtended::isNumeric(10.5));
