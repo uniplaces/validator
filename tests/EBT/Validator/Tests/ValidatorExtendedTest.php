@@ -47,4 +47,35 @@ class ValidatorExtendedTest extends TestCase
         $this->assertTrue(ValidatorExtended::isZeroOrPositiveInteger(1));
         $this->assertTrue(ValidatorExtended::isZeroOrPositiveInteger(10));
     }
+
+    public function testIsPositiveFloat()
+    {
+        $this->assertFalse(ValidatorExtended::isPositiveFloat('test'));
+        $this->assertFalse(ValidatorExtended::isPositiveFloat(-5));
+        $this->assertFalse(ValidatorExtended::isPositiveFloat(-3.2));
+        $this->assertFalse(ValidatorExtended::isPositiveFloat(0));
+        $this->assertFalse(ValidatorExtended::isPositiveFloat(0.0));
+        $this->assertTrue(ValidatorExtended::isPositiveFloat(0.1));
+        $this->assertFalse(ValidatorExtended::isPositiveFloat(1));
+        $this->assertTrue(ValidatorExtended::isPositiveFloat(1.0));
+        $this->assertTrue(ValidatorExtended::isPositiveFloat(1.1));
+        $this->assertFalse(ValidatorExtended::isPositiveFloat(0.1, 0.5));
+        $this->assertFalse(ValidatorExtended::isPositiveFloat(10));
+        $this->assertTrue(ValidatorExtended::isPositiveFloat(10.567));
+    }
+
+    public function testIsZeroOrPositiveFloat()
+    {
+        $this->assertFalse(ValidatorExtended::isZeroOrPositiveFloat('test'));
+        $this->assertFalse(ValidatorExtended::isZeroOrPositiveFloat(-5));
+        $this->assertFalse(ValidatorExtended::isZeroOrPositiveFloat(-3.2));
+        $this->assertFalse(ValidatorExtended::isZeroOrPositiveFloat(0));
+        $this->assertTrue(ValidatorExtended::isZeroOrPositiveFloat(0.0));
+        $this->assertTrue(ValidatorExtended::isZeroOrPositiveFloat(0.1));
+        $this->assertFalse(ValidatorExtended::isZeroOrPositiveFloat(1));
+        $this->assertTrue(ValidatorExtended::isZeroOrPositiveFloat(1.0));
+        $this->assertTrue(ValidatorExtended::isZeroOrPositiveFloat(1.1));
+        $this->assertFalse(ValidatorExtended::isZeroOrPositiveFloat(10));
+        $this->assertTrue(ValidatorExtended::isZeroOrPositiveFloat(10.567));
+    }
 }

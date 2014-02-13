@@ -76,4 +76,43 @@ abstract class ValidatorExtended extends BaseValidator
 
         return static::violationsToBool($violations);
     }
+
+    /**
+     * @param mixed $value
+     * @param float $range
+     *
+     * @return bool
+     */
+    public static function isPositiveFloat($value, $range = 0.01)
+    {
+        $violations = static::getValidator()->validateValue(
+            $value,
+            array(
+                new TypeConstraint(array('type' => 'float')),
+                new RangeConstraint(array('min' => $range))
+            )
+        );
+        static::setViolations($violations);
+
+        return static::violationsToBool($violations);
+    }
+
+    /**
+     * @param mixed $value
+     *
+     * @return bool
+     */
+    public static function isZeroOrPositiveFloat($value)
+    {
+        $violations = static::getValidator()->validateValue(
+            $value,
+            array(
+                new TypeConstraint(array('type' => 'float')),
+                new RangeConstraint(array('min' => 0))
+            )
+        );
+        static::setViolations($violations);
+
+        return static::violationsToBool($violations);
+    }
 }
