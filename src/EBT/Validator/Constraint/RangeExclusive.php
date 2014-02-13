@@ -1,17 +1,15 @@
 <?php
 
-/**
- * Range exclusive constraint
- * It's similar to Range
+/*
+ * This file is a part of the Validator library.
  *
- * LICENSE: [EMAILBIDDING_DESCRIPTION_LICENSE_HERE]
+ * (c) 2013 Ebidtech
  *
- * @author     Diogo Rocha <diogo.rocha@emailbidding.com>
- * @copyright  2012-2014 Emailbidding
- * @license    [EMAILBIDDING_URL_LICENSE_HERE]
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-namespace EBT\Constraints;
+namespace EBT\Validator\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Exception\MissingOptionsException;

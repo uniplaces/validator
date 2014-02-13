@@ -14,7 +14,7 @@ namespace EBT\Validator;
 use Symfony\Component\Validator\Constraints\NotBlank as NotBlankConstraint;
 use Symfony\Component\Validator\Constraints\Type as TypeConstraint;
 use Symfony\Component\Validator\Constraints\Range as RangeConstraint;
-use EBT\Constraints\RangeExclusive;
+use EBT\Validator\Constraint\RangeExclusive as RangeExclusiveConstraint;
 
 /**
  * ValidatorExtended
@@ -89,7 +89,7 @@ abstract class ValidatorExtended extends BaseValidator
             $value,
             array(
                 new TypeConstraint(array('type' => 'float')),
-                new RangeExclusive(array('min' => 0))
+                new RangeExclusiveConstraint(array('min' => 0))
             )
         );
         static::setViolations($violations);
@@ -108,7 +108,7 @@ abstract class ValidatorExtended extends BaseValidator
             $value,
             array(
                 new TypeConstraint(array('type' => 'float')),
-                new RangeExclusive(array('min' => 0))
+                new RangeConstraint(array('min' => 0))
             )
         );
         static::setViolations($violations);

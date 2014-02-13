@@ -59,7 +59,6 @@ class ValidatorExtendedTest extends TestCase
         $this->assertFalse(ValidatorExtended::isPositiveFloat(1));
         $this->assertTrue(ValidatorExtended::isPositiveFloat(1.0));
         $this->assertTrue(ValidatorExtended::isPositiveFloat(1.1));
-        $this->assertFalse(ValidatorExtended::isPositiveFloat(0.1, 0.5));
         $this->assertFalse(ValidatorExtended::isPositiveFloat(10));
         $this->assertTrue(ValidatorExtended::isPositiveFloat(10.567));
     }
