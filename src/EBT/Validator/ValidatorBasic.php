@@ -14,9 +14,9 @@ namespace EBT\Validator;
 use Symfony\Component\Validator\Constraints\NotBlank as NotBlankConstraint;
 use Symfony\Component\Validator\Constraints\Blank as BlankConstraint;
 use Symfony\Component\Validator\Constraints\NotNull as NotNullConstraint;
-use Symfony\Component\Validator\Constraints\Null as NullConstraint;
-use Symfony\Component\Validator\Constraints\True as TrueConstraint;
-use Symfony\Component\Validator\Constraints\False as FalseConstraint;
+use Symfony\Component\Validator\Constraints\IsNull as NullConstraint;
+use Symfony\Component\Validator\Constraints\IsTrue as TrueConstraint;
+use Symfony\Component\Validator\Constraints\IsFalse as FalseConstraint;
 use Symfony\Component\Validator\Constraints\Type as TypeConstraint;
 
 /**
