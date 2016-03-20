@@ -30,7 +30,7 @@ abstract class ValidatorString extends BaseValidator
      */
     public static function isEmail($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new EmailConstraint($options));
+        $violations = static::getValidator()->validate($value, new EmailConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -53,7 +53,7 @@ abstract class ValidatorString extends BaseValidator
             $options['max'] = $max;
         }
 
-        $violations = static::getValidator()->validateValue($value, new LengthConstraint($options));
+        $violations = static::getValidator()->validate($value, new LengthConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -67,7 +67,7 @@ abstract class ValidatorString extends BaseValidator
      */
     public static function isUrl($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new UrlConstraint($options));
+        $violations = static::getValidator()->validate($value, new UrlConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -111,7 +111,7 @@ abstract class ValidatorString extends BaseValidator
      */
     protected static function regex($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new RegexConstraint($options));
+        $violations = static::getValidator()->validate($value, new RegexConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -128,7 +128,7 @@ abstract class ValidatorString extends BaseValidator
     {
         $options['version'] = $version;
 
-        $violations = static::getValidator()->validateValue($value, new IpConstraint($options));
+        $violations = static::getValidator()->validate($value, new IpConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);

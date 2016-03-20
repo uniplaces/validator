@@ -35,7 +35,7 @@ abstract class ValidatorNumber extends BaseValidator
             $options['max'] = $max;
         }
 
-        $violations = static::getValidator()->validateValue($value, new RangeConstraint($options));
+        $violations = static::getValidator()->validate($value, new RangeConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);

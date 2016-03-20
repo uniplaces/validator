@@ -30,7 +30,7 @@ abstract class ValidatorCollection extends BaseValidator
     {
         $options['choices'] = $choices;
 
-        $violations = static::getValidator()->validateValue($value, new ChoiceConstraint($options));
+        $violations = static::getValidator()->validate($value, new ChoiceConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -47,7 +47,7 @@ abstract class ValidatorCollection extends BaseValidator
     {
         $options['callback'] = $callback;
 
-        $violations = static::getValidator()->validateValue($value, new ChoiceConstraint($options));
+        $violations = static::getValidator()->validate($value, new ChoiceConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -70,7 +70,7 @@ abstract class ValidatorCollection extends BaseValidator
             $options['max'] = $max;
         }
 
-        $violations = static::getValidator()->validateValue($value, new CountConstraint($options));
+        $violations = static::getValidator()->validate($value, new CountConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);

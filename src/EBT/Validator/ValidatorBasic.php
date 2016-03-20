@@ -34,7 +34,7 @@ abstract class ValidatorBasic extends BaseValidator
      */
     public static function isNotBlank($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new NotBlankConstraint($options));
+        $violations = static::getValidator()->validate($value, new NotBlankConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -50,7 +50,7 @@ abstract class ValidatorBasic extends BaseValidator
      */
     public static function isBlank($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new BlankConstraint($options));
+        $violations = static::getValidator()->validate($value, new BlankConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -66,7 +66,7 @@ abstract class ValidatorBasic extends BaseValidator
      */
     public static function isNotNull($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new NotNullConstraint($options));
+        $violations = static::getValidator()->validate($value, new NotNullConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -82,7 +82,7 @@ abstract class ValidatorBasic extends BaseValidator
      */
     public static function isNull($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new NullConstraint($options));
+        $violations = static::getValidator()->validate($value, new NullConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -99,7 +99,7 @@ abstract class ValidatorBasic extends BaseValidator
      */
     public static function isTrue($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new TrueConstraint($options));
+        $violations = static::getValidator()->validate($value, new TrueConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -116,7 +116,7 @@ abstract class ValidatorBasic extends BaseValidator
      */
     public static function isFalse($value, array $options = array())
     {
-        $violations = static::getValidator()->validateValue($value, new FalseConstraint($options));
+        $violations = static::getValidator()->validate($value, new FalseConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -136,7 +136,7 @@ abstract class ValidatorBasic extends BaseValidator
     {
         $options['type'] = $type;
 
-        $violations = static::getValidator()->validateValue($value, new TypeConstraint($options));
+        $violations = static::getValidator()->validate($value, new TypeConstraint($options));
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
