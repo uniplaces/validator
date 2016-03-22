@@ -30,7 +30,7 @@ abstract class ValidatorDate extends BaseValidator
      */
     public static function isDate($value)
     {
-        $violations = static::getValidator()->validateValue($value, new DateConstraint());
+        $violations = static::getValidator()->validate($value, new DateConstraint());
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -46,7 +46,7 @@ abstract class ValidatorDate extends BaseValidator
      */
     public static function isDateTime($value)
     {
-        $violations = static::getValidator()->validateValue($value, new DateTimeConstraint());
+        $violations = static::getValidator()->validate($value, new DateTimeConstraint());
         static::setViolations($violations);
 
         return static::violationsToBool($violations);
@@ -62,7 +62,7 @@ abstract class ValidatorDate extends BaseValidator
      */
     public static function isTime($value)
     {
-        $violations = static::getValidator()->validateValue($value, new TimeConstraint());
+        $violations = static::getValidator()->validate($value, new TimeConstraint());
         static::setViolations($violations);
 
         return static::violationsToBool($violations);

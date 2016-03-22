@@ -28,7 +28,7 @@ abstract class ValidatorExtended extends BaseValidator
      */
     public static function isStringAndNotBlank($value)
     {
-        $violations = static::getValidator()->validateValue(
+        $violations = static::getValidator()->validate(
             $value,
             array(
                 new TypeConstraint(array('type' => 'string')),
@@ -47,7 +47,7 @@ abstract class ValidatorExtended extends BaseValidator
      */
     public static function isPositiveInteger($value)
     {
-        $violations = static::getValidator()->validateValue(
+        $violations = static::getValidator()->validate(
             $value,
             array(
                 new TypeConstraint(array('type' => 'integer')),
@@ -66,7 +66,7 @@ abstract class ValidatorExtended extends BaseValidator
      */
     public static function isZeroOrPositiveInteger($value)
     {
-        $violations = static::getValidator()->validateValue(
+        $violations = static::getValidator()->validate(
             $value,
             array(
                 new TypeConstraint(array('type' => 'integer')),
@@ -85,7 +85,7 @@ abstract class ValidatorExtended extends BaseValidator
      */
     public static function isPositiveFloat($value)
     {
-        $violations = static::getValidator()->validateValue(
+        $violations = static::getValidator()->validate(
             $value,
             array(
                 new TypeConstraint(array('type' => 'float')),
@@ -104,7 +104,7 @@ abstract class ValidatorExtended extends BaseValidator
      */
     public static function isZeroOrPositiveFloat($value)
     {
-        $violations = static::getValidator()->validateValue(
+        $violations = static::getValidator()->validate(
             $value,
             array(
                 new TypeConstraint(array('type' => 'float')),
